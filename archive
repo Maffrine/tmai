@@ -1,0 +1,36 @@
+// Callback for Genesis filters to add navigation extras.
+    add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
+    
+    /**
+    * Filter menu items, appending a search form.
+    *
+    * @param string   $menu HTML string of list items.
+    * @param stdClass $args Menu arguments.
+    *
+    * @return string Amended HTML string of list items.
+    */
+    
+     /*function theme_menu_extras( $menu, $args ) {
+
+	// Add search form to primary navigation menu.
+	if ( 'primary' !== $args->theme_location )
+    return $menu;
+
+	$menu  .= '<li class="right search">' . get_search_form( false ) . '</li>';
+
+	return $menu;
+    }
+    
+    // Customize search form input box text.
+    add_filter( 'genesis_search_text', 'tmai_search_text' );
+    function tmai_search_text( $text ) {
+	return esc_attr( 'Search' );
+    }
+
+    // Customize search form input button text.
+    add_filter( 'genesis_search_button_text', 'tmai_search_button_text' );
+    function tmai_search_button_text( $text ) {
+
+	return esc_attr( '&#xf002;' );
+
+    }
